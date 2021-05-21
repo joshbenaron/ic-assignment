@@ -1,0 +1,12 @@
+/home/josh/assignment/target/debug/deps/term-1bcd47ef545e2a4e.rmeta: /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/lib.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/mod.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/searcher.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/compiled.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/names.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parm.rs
+
+/home/josh/assignment/target/debug/deps/libterm-1bcd47ef545e2a4e.rlib: /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/lib.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/mod.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/searcher.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/compiled.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/names.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parm.rs
+
+/home/josh/assignment/target/debug/deps/term-1bcd47ef545e2a4e.d: /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/lib.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/mod.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/searcher.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/compiled.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/names.rs /home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parm.rs
+
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/lib.rs:
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/mod.rs:
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/searcher.rs:
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/compiled.rs:
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parser/names.rs:
+/home/josh/.cargo/registry/src/github.com-1ecc6299db9ec823/term-0.5.2/src/terminfo/parm.rs:

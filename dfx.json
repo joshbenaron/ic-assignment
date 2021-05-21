@@ -1,0 +1,37 @@
+{
+  "canisters": {
+    "assignment": {
+      "build": "cargo build --target wasm32-unknown-unknown --package assignment_rs --release",
+      "optimize":"ic-cdk-optimizer target/wasm32-unknown-unknown/release/assignment_rs.wasm -o target/wasm32-unknown-unknown/release/assignment_rs_opt.wasm",
+      "candid": "src/assignment_rs/assignment.did",
+      "wasm": "target/wasm32-unknown-unknown/release/assignment_rs_opt.wasm",
+      "type": "custom"
+    },
+    "queue": {
+      "build": "cargo build --target wasm32-unknown-unknown --package queue_rs --release",
+      "optimize":"ic-cdk-optimizer target/wasm32-unknown-unknown/release/queue_rs.wasm -o target/wasm32-unknown-unknown/release/queue_rs_opt.wasm",
+      "candid": "src/queue_rs/queue.did",
+      "wasm": "target/wasm32-unknown-unknown/release/queue_rs_opt.wasm",
+      "type": "custom"
+    }
+  },
+  "defaults": {
+      "build": {
+          "packtool": ""
+      }
+  },
+  "dfx": "0.6.26",
+  "networks": {
+      "local": {
+          "bind": "127.0.0.1:8000",
+          "type": "ephemeral"
+      },
+      "ic": {
+          "providers": [
+              "https://gw.dfinity.network"
+          ],
+          "type": "persistent"
+      }
+  },
+  "version": 1
+}
