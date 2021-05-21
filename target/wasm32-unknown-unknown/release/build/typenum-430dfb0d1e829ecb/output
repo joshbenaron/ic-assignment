@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/home/josh/assignment/target/wasm32-unknown-unknown/release/build/typenum-430dfb0d1e829ecb/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/home/josh/assignment/target/wasm32-unknown-unknown/release/build/typenum-430dfb0d1e829ecb/out/op.rs
