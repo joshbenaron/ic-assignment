@@ -1,4 +1,6 @@
 [workspace]
 members = [
     "src/assignment_rs",
+    "src/queue_rs",
+    "src/http-client-oracle"
 ]

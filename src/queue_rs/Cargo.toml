@@ -1,5 +1,5 @@
 [package]
-name = "assignment_rs"
+name = "queue_rs"
 version = "0.1.0"
 authors = ["josh"]
 edition = "2018"

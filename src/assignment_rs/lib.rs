@@ -1,6 +1,6 @@
 use ic_cdk_macros::*;
 
-#[import(canister = "inter_mo")]
+#[import(canister = "queue")]
 pub struct QueueCansiter;
 
 #[ic_cdk_macros::query]
