@@ -21,6 +21,13 @@ pub mod dfx_service {
             .unwrap()
             .stdout;
 
-        println!("{}", String::from_utf8(output).unwrap());
+        let str_output = String::from_utf8(output).unwrap();
+
+        let parsed = str_output
+                        .remove("(vec {")
+                        .remove("}")
+                        .trim();
     }
+
+    /// /(url = \".*\"; method = \".*\")/g
 }

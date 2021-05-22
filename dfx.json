@@ -1,18 +1,12 @@
 {
   "canisters": {
     "assignment": {
-      "build": "cargo build --target wasm32-unknown-unknown --package assignment_rs --release",
-      "optimize":"ic-cdk-optimizer target/wasm32-unknown-unknown/release/assignment_rs.wasm -o target/wasm32-unknown-unknown/release/assignment_rs_opt.wasm",
-      "candid": "src/assignment_rs/assignment.did",
-      "wasm": "target/wasm32-unknown-unknown/release/assignment_rs_opt.wasm",
-      "type": "custom"
+      "main": "src/assignment_mo/Main.mo",
+      "type": "motoko"
     },
     "queue": {
-      "build": "cargo build --target wasm32-unknown-unknown --package queue_rs --release",
-      "optimize":"ic-cdk-optimizer target/wasm32-unknown-unknown/release/queue_rs.wasm -o target/wasm32-unknown-unknown/release/queue_rs_opt.wasm",
-      "candid": "src/queue_rs/queue.did",
-      "wasm": "target/wasm32-unknown-unknown/release/queue_rs_opt.wasm",
-      "type": "custom"
+      "main": "src/queue_mo/Main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {

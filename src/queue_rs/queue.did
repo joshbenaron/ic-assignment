@@ -1,3 +1,0 @@
-service : {
-    "post": (url: Text) -> () query;
-}
