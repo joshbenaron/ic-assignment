@@ -7,7 +7,6 @@ actor Queue {
     type Request = Types.Request;
     
     stable var requests: [Request] = [];
-    stable let owner
 
     public shared(msg) func add(method: Text, url: Text): async () {
         let request: Request = { 
@@ -19,6 +18,7 @@ actor Queue {
     };
 
     public shared(msg) func get_and_remove(): async [Request] {
+        Debug.print("Emptied");
         
         let requests2 = requests;
         requests := [];

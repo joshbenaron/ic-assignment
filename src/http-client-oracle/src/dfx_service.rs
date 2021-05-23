@@ -1,5 +1,6 @@
 pub mod dfx_service {
-    use std::process::Command;
+    use core::str;
+    use std::{io::Write, mem::replace, process::{Command, Stdio}};
 
     use crate::Request;
 
@@ -18,17 +19,19 @@ pub mod dfx_service {
     }
 
     pub(crate) fn poll_canister_for_urls() -> Option<Vec<Request>> {
-        let output = Command::new("dfx canister call request_queue get_and_remove")
+        let output = Command::new("dfx")
+            .args(&["canister", "call", "queue", "get_and_remove"])
+            .current_dir("/home/josh/assignment")
             .output()
-            .unwrap()
-            .stdout;
+            .unwrap();
 
-        let str_output = String::from_utf8(output)
+        let str_output = String::from_utf8(output.stdout)
                                     .unwrap()
                                     .replace("(vec {", "")
-                                    .replace("}", "");
+                                    .replace("}", "")
+                                    .replace(")", "");
 
-        if !str_output.contains(",") { return None };
+        if !str_output.contains(";") { return None };
 
         let l = str_output.split(",")
             .map(|s| s.trim())
@@ -48,16 +51,20 @@ pub mod dfx_service {
                                 .unwrap()
                                 .split("=")
                                 .last()
-                                .unwrap();
+                                .unwrap()
+                                .trim();
             
             let method = vars
                                 .get(1)
                                 .unwrap()
                                 .split("=")
                                 .last()
-                                .unwrap();
+                                .unwrap()
+                                .replace("\"", "");
 
-            let request = Request { url: url.to_string(), method: method.into() };
+            println!("Got Method: {}, URL: {}", method, url);
+
+            let request = Request { url: url.to_string(), method: method.trim().into() };
 
             requests.push(request);
         }

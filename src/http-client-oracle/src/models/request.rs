@@ -1,8 +1,9 @@
+#[derive(Clone)]
 pub struct Request {
     pub method: HttpMethod,
     pub url: String
 }
-
+#[derive(Clone, Copy)]
 pub enum HttpMethod { GET, POST, PUT }
 
 impl HttpMethod {
@@ -31,7 +32,7 @@ impl From<&str> for HttpMethod {
             "GET" => Self::GET,
             "POST" => Self::POST,
             "PUT" => Self::PUT,
-            _ => panic!("Received invalid method")
+            s => panic!("Received invalid method: {}", s)
         }
     }
 }

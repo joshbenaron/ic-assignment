@@ -1,6 +1,9 @@
 mod dfx_service;
 mod models;
 
+use std::process::Command;
+
+use actix_rt::{System, SystemRunner};
 use dfx_service::dfx_service::poll_canister_for_urls;
 use models::request::{Request};
 
@@ -14,9 +17,9 @@ impl Oracle {
     }
 
     pub fn run (self) {
-        let runtime = actix_rt::Runtime::new().unwrap();
+        let system = actix_rt::System::new();
 
-        runtime.block_on(self.run_poll());
+        system.block_on(self.run_poll());
     }
 
     async fn run_poll(self) {
@@ -24,7 +27,7 @@ impl Oracle {
             let urls = self.get_urls();
 
             if !urls.is_empty() {
-                
+                self.make_requests(urls).await;
             }
 
             actix_rt::time::sleep(std::time::Duration::from_millis(1000)).await;
@@ -43,7 +46,6 @@ impl Oracle {
             let r = client.request(req.method.into(), req.url);
             actix_rt::spawn(async {
                 r.send().await;
-                println!("Sent");
             });
         }
     }

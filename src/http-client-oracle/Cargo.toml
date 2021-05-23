@@ -8,7 +8,7 @@ edition = "2018"
 
 [dependencies]
 actix-rt = "2.2.0"
-awc = "2.0.3"
+awc = "3.0.0-beta.5"
 
 [lib]
 crate-type = ["cdylib"]
