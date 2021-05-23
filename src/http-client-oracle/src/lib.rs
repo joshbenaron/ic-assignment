@@ -1,12 +1,8 @@
 mod dfx_service;
-
+mod models;
 
 use dfx_service::dfx_service::poll_canister_for_urls;
-
-use tokio::{
-    time::sleep,
-    time::Duration
-};
+use models::request::{Request};
 
 struct Oracle {
 
@@ -18,12 +14,7 @@ impl Oracle {
     }
 
     pub fn run (self) {
-        let runtime = tokio::runtime::Builder::new_multi_thread()
-            .worker_threads(4)
-            .thread_name("client-oracle")
-            .thread_stack_size(3 * 1024 * 1024)
-            .build()
-            .unwrap();
+        let runtime = actix_rt::Runtime::new().unwrap();
 
         runtime.block_on(self.run_poll());
     }
@@ -33,30 +24,39 @@ impl Oracle {
             let urls = self.get_urls();
 
             if !urls.is_empty() {
-
+                
             }
 
-            sleep(Duration::from_millis(1000)).await;
+            actix_rt::time::sleep(std::time::Duration::from_millis(1000)).await;
         }
     }
 
-    fn get_urls(&self) -> Vec<Request> {
+    pub(self) fn get_urls(&self) -> Vec<Request> {
         let urls = poll_canister_for_urls();
-        vec![]
+        urls.unwrap_or_else(|| vec![])
     }
-}
 
-enum HttpMethod { GET, POST, PUT, DELETE }
+    async fn make_requests(&self, requests: Vec<Request>) {
+        let client = awc::Client::default();
 
-struct Request {
-    url: String,
-    method: HttpMethod
+        for req in requests {
+            let r = client.request(req.method.into(), req.url);
+            actix_rt::spawn(async {
+                r.send().await;
+                println!("Sent");
+            });
+        }
+    }
 }
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn test_oracle() {
+        let oracle = Oracle::new();
+
+        oracle.run();
     }
 }

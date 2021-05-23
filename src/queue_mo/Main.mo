@@ -19,7 +19,7 @@ actor Queue {
     };
 
     public shared(msg) func get_and_remove(): async [Request] {
-        if 
+        
         let requests2 = requests;
         requests := [];
 
