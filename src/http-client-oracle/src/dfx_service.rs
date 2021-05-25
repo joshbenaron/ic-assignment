@@ -1,6 +1,6 @@
 pub mod dfx_service {
     use core::str;
-    use std::{io::Write, mem::replace, process::{Command, Stdio}};
+    use std::process::Command;
 
     use crate::Request;
 
@@ -21,7 +21,6 @@ pub mod dfx_service {
     pub(crate) fn poll_canister_for_urls() -> Option<Vec<Request>> {
         let output = Command::new("dfx")
             .args(&["canister", "call", "queue", "get_and_remove"])
-            .current_dir("/home/josh/assignment")
             .output()
             .unwrap();
 
